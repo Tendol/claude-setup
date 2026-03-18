@@ -1,0 +1,198 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp *)",
+      "Bash(curl *)",
+      "Bash(find *)",
+      "Bash(gh api *)",
+      "Bash(gh issue *)",
+      "Bash(gh pr checks *)",
+      "Bash(gh pr comment *)",
+      "Bash(gh pr diff *)",
+      "Bash(gh pr list *)",
+      "Bash(gh pr merge *)",
+      "Bash(gh pr review *)",
+      "Bash(gh pr view *)",
+      "Bash(gh repo view *)",
+      "Bash(gh run list *)",
+      "Bash(gh run view *)",
+      "Bash(gh run watch *)",
+      "Bash(gh search *)",
+      "Bash(gh release list *)",
+      "Bash(gh release view *)",
+      "Bash(gh workflow list *)",
+      "Bash(gh workflow view *)",
+      "Bash(gh label list *)",
+      "Bash(gh repo list *)",
+      "Bash(gh status *)",
+      "Bash(git -C * *)",
+      "Bash(git add *)",
+      "Bash(git branch *)",
+      "Bash(git check-ignore *)",
+      "Bash(git checkout *)",
+      "Bash(git config *)",
+      "Bash(git diff *)",
+      "Bash(git fetch *)",
+      "Bash(git log *)",
+      "Bash(git ls-tree *)",
+      "Bash(git merge *)",
+      "Bash(git pull *)",
+      "Bash(git push *)",
+      "Bash(git rebase *)",
+      "Bash(git remote *)",
+      "Bash(git reset *)",
+      "Bash(git restore *)",
+      "Bash(git rev-list *)",
+      "Bash(git rev-parse *)",
+      "Bash(git show *)",
+      "Bash(git stash *)",
+      "Bash(git status *)",
+      "Bash(git worktree *)",
+      "Bash(basename *)",
+      "Bash(cat *)",
+      "Bash(chmod *)",
+      "Bash(cp *)",
+      "Bash(cut *)",
+      "Bash(date *)",
+      "Bash(diff *)",
+      "Bash(dirname *)",
+      "Bash(echo *)",
+      "Bash(env *)",
+      "Bash(file *)",
+      "Bash(grep *)",
+      "Bash(jq *)",
+      "Bash(mkdir *)",
+      "Bash(mv *)",
+      "Bash(pgrep *)",
+      "Bash(ps *)",
+      "Bash(readlink *)",
+      "Bash(realpath *)",
+      "Bash(pwd *)",
+      "Bash(sed *)",
+      "Bash(sort *)",
+      "Bash(stat *)",
+      "Bash(tee *)",
+      "Bash(touch *)",
+      "Bash(tr *)",
+      "Bash(uniq *)",
+      "Bash(uname *)",
+      "Bash(which *)",
+      "Bash(xargs *)",
+      "Bash(ls *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(node *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npm test *)",
+      "Bash(npm list *)",
+      "Bash(npm outdated *)",
+      "Bash(npm audit *)",
+      "Bash(npm view *)",
+      "Bash(npm why *)",
+      "Bash(npx jest *)",
+      "Bash(npx tsc *)",
+      "Bash(npx eslint *)",
+      "Bash(npx prettier *)",
+      "Bash(npx vitest *)",
+      "Bash(npx next *)",
+      "Bash(python3 *)",
+      "Bash(python *)",
+      "Bash(pip install *)",
+      "Bash(pip list *)",
+      "Bash(pip show *)",
+      "Bash(pip freeze *)",
+      "Bash(pytest *)",
+      "Bash(ruff check *)",
+      "Bash(ruff format *)",
+      "Bash(mypy *)",
+      "Bash(alembic *)",
+      "Bash(docker compose *)",
+      "Bash(docker ps *)",
+      "Bash(docker logs *)",
+      "Bash(docker exec *)",
+      "Bash(docker build *)",
+      "Bash(task *)",
+      "Bash(dbt *)",
+      "Bash(snow *)",
+      "Bash(rm ~/.claude/projects/**/memory/handoffs/**)",
+      "WebFetch",
+      "WebSearch",
+      "mcp__wayfinder__*",
+      "Read(~/.claude/**)",
+      "Edit(~/.claude/session-notes/**)",
+      "Edit(~/.claude/projects/**/memory/**)",
+      "Write(~/.claude/session-notes/**)",
+      "Write(~/.claude/projects/**/memory/**)",
+      "Edit(~/.claude/reviews/**)",
+      "Write(~/.claude/reviews/**)",
+      "Edit(//tmp/**)",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Write(//tmp/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/session-start.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/no-edit-on-main.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/no-edit-on-main.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/sensitive-file-warning.sh"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/pre-compact.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": true,
+    "wayfinder@wayfinder": true
+  },
+  "effortLevel": "high"
+}
