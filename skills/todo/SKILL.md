@@ -55,7 +55,19 @@ Determine which operation the user wants:
 - [x] #2 — Fix session error handling (completed Apr 5)
 ```
 
+### GitHub Project Board Items
+
+When listing todos (any context), also query all wanderu org GitHub Projects for issues assigned to Tendol in **Ready** or **In Progress** status, filtered to labels: `tech-debt`, `bug`, `improvement`, `enhancement`, `help-wanted`.
+
+Steps:
+1. `gh project list --owner wanderu --format json` to discover all projects
+2. For each project: `gh project item-list <number> --owner wanderu --format json`
+3. Filter by assignee = Tendol, status in (Ready, In Progress), and matching labels
+4. Show after the local todo list under a `## GitHub Project Items` heading
+
+Requires `read:project` scope on the gh token.
+
 ### Notes
 - If `~/.claude/todo.json` doesn't exist, create it with an empty array `[]`.
 - Always write the file back after mutations.
-- When listing during standup (Part 1 or Part 4), keep it compact — skip the recently completed section unless asked.
+- When listing during standup (Part 1 or Part 5), keep it compact — skip the recently completed section unless asked.
