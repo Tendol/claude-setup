@@ -44,6 +44,7 @@ If a ticket exists in the branch name (e.g., `feat/MAIN-1234-add-auth`), include
 
 - NEVER create a PR without running `reviewing-code` first
 - NEVER guess deploy/preview URLs — wait for CI to provide them
+- NEVER use `gh pr edit --body` to replace the entire PR description after the user has added content (images, screen recordings) — this destroys their additions with no way to recover. Prefer `gh pr comment` for updates, or ask the user to confirm before replacing.
 - Always use the `(type)` prefix convention in PR titles
 - Include migration instructions in PR body if there are schema changes
 - Tag relevant reviewers if known
