@@ -4,7 +4,7 @@ projects/
 # Session / runtime data
 history.jsonl
 *.jsonl
-session-notes/
+/session-notes/
 todos/
 tasks/
 session-env/

@@ -7,10 +7,11 @@ Process before committing — ensures quality, captures learnings, and handles b
 ### Phase 1: Quality Gate
 
 1. **Reflect on session** — identify learnings, corrections, patterns worth codifying
-2. **Update docs if needed** — session notes, convention docs, skills
+2. **Update docs if needed** — convention docs, skills
 3. **Run verification** — invoke `verifying` skill (REQUIRED — do not skip)
 4. **Run code review** — invoke `reviewing-code` skill (REQUIRED — do not skip)
-5. **Commit** — only after verification AND code review pass
+5. **Write session notes** — invoke `session-notes` skill (REQUIRED — do not skip)
+6. **Commit** — only after verification, code review, AND session notes
 
 ### Phase 2: Branch Completion
 
@@ -55,19 +56,11 @@ git worktree remove <worktree-path>
 
 For Options 2 and 3: keep worktree.
 
-## What to Capture in Session Notes
-
-- Architectural decisions and their rationale
-- Corrections to AI approach (what was wrong, what's correct)
-- Working patterns discovered
-- Testing strategies that worked
-- Bugs found and their root causes
-
 ## Rules
 
 - NEVER commit without running both `verifying` and code review
 - NEVER proceed to Phase 2 with failing tests
 - Include actual command output evidence in commit message
-- Write session notes to `~/.claude/session-notes/<project>/`
+- NEVER skip session notes — invoke `session-notes` skill
 - If verification fails, fix before committing — don't commit broken code
 - NEVER force-push or delete work without explicit confirmation
