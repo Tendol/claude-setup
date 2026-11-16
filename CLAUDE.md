@@ -3,7 +3,7 @@
 ## Session Continuity Files
 
 - **`~/.claude/projects/<project>/memory/handoffs/<name>.md`** — transient cross-session handoff docs. One per branch or task. Overwrite each session, delete once actioned (merged/done).
-- **`~/.claude/session-notes/`** — permanent historical record. Never delete.
+- **`~/.claude/session-notes/`** — permanent historical record. Never delete. When `CLAUDE_CONFIG_DIR` is set (a second Claude account), use `$CLAUDE_CONFIG_DIR/session-notes/` instead.
 
 Always write handoff docs to the project-scoped `memory/handoffs/`, not `session-notes/`.
 

@@ -4,7 +4,7 @@ Write or append session notes for the current work session. Use when finishing w
 
 ## Process
 
-1. **Determine the file path**: `~/.claude/session-notes/<project-name>/YYYY-MM-DD.md`
+1. **Determine the file path**: `~/.claude/session-notes/<project-name>/YYYY-MM-DD.md` (if `CLAUDE_CONFIG_DIR` is set, use `$CLAUDE_CONFIG_DIR/session-notes/` instead so each account keeps its own notes)
 2. **Check if today's file exists**. If so, read it and append a new `##` section. If not, create it with a `# YYYY-MM-DD` heading.
 3. **Gather context**: current branch, PR number (if any), what was worked on
 4. **Write using the exact template below** — do not skip or rename sections. Use "None" if a section has nothing to report.
