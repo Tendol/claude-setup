@@ -20,7 +20,8 @@ if [[ -z "$file_path" ]]; then
 fi
 
 # Allow edits to global config (not in any git repo's working tree)
-if [[ "$file_path" == "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/"* ]]; then
+config_dir="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+if [[ "$file_path" == "${config_dir%/}/"* ]]; then
     exit 0
 fi
 

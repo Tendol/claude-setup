@@ -183,7 +183,7 @@ fi
 source=$(echo "$input" | jq -r '.source // empty' 2>/dev/null)
 
 if [[ "$source" == "compact" ]]; then
-    project_session_notes_dir="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/session-notes/$(get_project_name)"
+    project_session_notes_dir="$(claude_config_dir)/session-notes/$(get_project_name)"
     echo "Session resumed after compaction. Before anything else:"
     echo "Write session notes to: $project_session_notes_dir/$(date +%Y-%m-%d)-<topic>.md"
     echo "Use the compaction summary above as your source. Do this NOW."

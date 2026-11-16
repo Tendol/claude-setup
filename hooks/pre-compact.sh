@@ -22,7 +22,7 @@ short_id="${session_id:0:8}"
 [[ -z "$short_id" ]] && short_id="unknown"
 
 project=$(get_project_name 2>/dev/null || echo "unknown")
-session_notes_dir="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/session-notes/$project"
+session_notes_dir="$(claude_config_dir)/session-notes/$project"
 mkdir -p "$session_notes_dir" 2>/dev/null || { echo "Cannot create $session_notes_dir" >&2; exit 0; }
 
 # Filename: topic-based if /compact <topic> was given, session-id-based otherwise

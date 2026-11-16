@@ -2,6 +2,12 @@
 # Shared functions for project-scoped session notes
 # Used by session-start.sh and pre-compact.sh
 
+# Config dir for this Claude account (work: ~/.claude; a second account sets CLAUDE_CONFIG_DIR).
+claude_config_dir() {
+    local dir="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+    printf '%s' "${dir%/}"
+}
+
 get_project_name() {
     # Try git remote first (stable across directory renames and worktrees)
     local remote_url
@@ -18,7 +24,7 @@ get_project_name() {
 get_recent_session_notes() {
     local project_name
     project_name=$(get_project_name)
-    local session_notes_dir="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/session-notes/$project_name"
+    local session_notes_dir="$(claude_config_dir)/session-notes/$project_name"
 
     if [[ ! -d "$session_notes_dir" ]]; then
         return
