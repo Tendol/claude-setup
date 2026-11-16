@@ -15,7 +15,7 @@ Morning kickoff that runs two workflows in sequence.
 
 ### Part 1 — Yesterday Recap
 
-Scan all project subdirectories under `~/.claude/session-notes/` for yesterday's date (`YYYY-MM-DD.md`). Each wanderu repo writes its own session notes to `~/.claude/session-notes/<project>/YYYY-MM-DD.md` via the `finishing-work` skill. Aggregate all notes found across projects into a 3-5 bullet summary of what was accomplished — repos touched, PRs opened/merged, key decisions, anything left in progress. If no notes exist for yesterday (e.g., Monday morning after a weekend), check the most recent session notes across all projects and note the date. Keep it brief — this is context-setting, not a full recap.
+Scan all project subdirectories under `~/.claude/session-notes/` (or `$CLAUDE_CONFIG_DIR/session-notes/` when that variable is set) for yesterday's date (`YYYY-MM-DD.md`). Each wanderu repo writes its own session notes to `~/.claude/session-notes/<project>/YYYY-MM-DD.md` via the `finishing-work` skill. Aggregate all notes found across projects into a 3-5 bullet summary of what was accomplished — repos touched, PRs opened/merged, key decisions, anything left in progress. If no notes exist for yesterday (e.g., Monday morning after a weekend), check the most recent session notes across all projects and note the date. Keep it brief — this is context-setting, not a full recap.
 
 After the recap, invoke the `todo` skill (list operation) for any items due today or overdue. If there are any, call them out here — e.g., "Due today: finish PLAT-211 report view". This gives an immediate sense of what's on the plate before diving into PRs.
 

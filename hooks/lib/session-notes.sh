@@ -18,7 +18,7 @@ get_project_name() {
 get_recent_session_notes() {
     local project_name
     project_name=$(get_project_name)
-    local session_notes_dir="$HOME/.claude/session-notes/$project_name"
+    local session_notes_dir="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/session-notes/$project_name"
 
     if [[ ! -d "$session_notes_dir" ]]; then
         return
